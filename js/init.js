@@ -1,0 +1,1 @@
+window.RougeLike = window.RougeLike || {};
