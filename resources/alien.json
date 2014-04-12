@@ -1,0 +1,60 @@
+{"frames": {
+
+"alien-1.png":
+{
+	"frame": {"x":0,"y":0,"w":40,"h":63},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":63},
+	"sourceSize": {"w":40,"h":63}
+},
+"alien-2.png":
+{
+	"frame": {"x":42,"y":0,"w":40,"h":63},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":63},
+	"sourceSize": {"w":40,"h":63}
+},
+"alien-3.png":
+{
+	"frame": {"x":84,"y":0,"w":40,"h":63},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":63},
+	"sourceSize": {"w":40,"h":63}
+},
+"alien-4.png":
+{
+	"frame": {"x":0,"y":65,"w":40,"h":63},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":63},
+	"sourceSize": {"w":40,"h":63}
+},
+"alien-5.png":
+{
+	"frame": {"x":42,"y":65,"w":40,"h":63},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":63},
+	"sourceSize": {"w":40,"h":63}
+},
+"alien-6.png":
+{
+	"frame": {"x":84,"y":65,"w":40,"h":63},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":63},
+	"sourceSize": {"w":40,"h":63}
+}},
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker ",
+	"version": "1.0",
+	"image": "alien.png",
+	"format": "RGBA8888",
+	"size": {"w":128,"h":128},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:4bb47692a9376d03c8b926833ce3edfa:f9f6b0158396fea0a45a0cb9bc876e76:f5c2820dc1d6657fd77f91f373566390$"
+}
+}

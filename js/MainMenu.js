@@ -1,17 +1,22 @@
-RougeLike.MainMenu = function() {
+/* global FebGAM, Phaser */
+
+FebGAM.MainMenu = function() {
     this.bg = null;
 };
 
-RougeLike.MainMenu.prototype = Object.create(Phaser.State.prototype);
-RougeLike.MainMenu.prototype.constructor = RougeLike.BootScreen;
+FebGAM.MainMenu.prototype = Object.create(Phaser.State.prototype);
+FebGAM.MainMenu.prototype.constructor = FebGAM.MainMenu;
 
-RougeLike.MainMenu.prototype.preload = function() {
+FebGAM.MainMenu.prototype.preload = function() {
 };
     
-RougeLike.MainMenu.prototype.create = function() {
-    this.bg = this.game.add.tileSprite(0, 0, this.game.width, this.game.height, 'waterbg');
+FebGAM.MainMenu.prototype.create = function() {
+    this.add.button(this.world.centerX - 150, this.world.centerY - 40, 'button', actionOnClick, this);
 };
+
+function actionOnClick() {
+    this.game.state.start('GameScreen');
+}
     
-RougeLike.MainMenu.prototype.update = function() {
-    this.bg.tilePosition.y += 1;
+FebGAM.MainMenu.prototype.update = function() {
 };

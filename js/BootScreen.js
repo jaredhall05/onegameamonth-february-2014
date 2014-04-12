@@ -1,13 +1,15 @@
-RougeLike.BootScreen = function() {
+/* global FebGAM, Phaser */
+
+FebGAM.BootScreen = function() {
 };
 
-RougeLike.BootScreen.prototype = Object.create(Phaser.State.prototype);
-RougeLike.BootScreen.prototype.constructor = RougeLike.BootScreen;
+FebGAM.BootScreen.prototype = Object.create(Phaser.State.prototype);
+FebGAM.BootScreen.prototype.constructor = FebGAM.BootScreen;
 
-RougeLike.BootScreen.prototype.preload = function() {
+FebGAM.BootScreen.prototype.preload = function() {
     this.load.image('progBar', 'resources/progBar.jpg');
 };
 
-RougeLike.BootScreen.prototype.create = function() {
+FebGAM.BootScreen.prototype.create = function() {
     this.game.state.start('PreloadScreen');
 };

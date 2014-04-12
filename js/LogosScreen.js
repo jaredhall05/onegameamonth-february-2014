@@ -1,4 +1,6 @@
-RougeLike.LogosScreen = function() {
+/* global FebGAM, Phaser */
+
+FebGAM.LogosScreen = function() {
     this.phaserLogo = null;
     this.jdhdevLogo = null;
     
@@ -8,13 +10,13 @@ RougeLike.LogosScreen = function() {
     this._tween = null;
 };
 
-RougeLike.LogosScreen.prototype = Object.create(Phaser.State.prototype);
-RougeLike.LogosScreen.prototype.constructor = Phaser.State;
+FebGAM.LogosScreen.prototype = Object.create(Phaser.State.prototype);
+FebGAM.LogosScreen.prototype.constructor = Phaser.State;
 
-RougeLike.LogosScreen.prototype.preload = function() {
+FebGAM.LogosScreen.prototype.preload = function() {
 };
 
-RougeLike.LogosScreen.prototype.create = function() {
+FebGAM.LogosScreen.prototype.create = function() {
     this.phaserLogo = this.add.sprite(this.game.world.centerX, this.game.world.centerY,'phaser-logo');
     this.phaserLogo.anchor.setTo(0.5, 0.5);
     this.phaserLogo.alpha = 0;
@@ -31,21 +33,21 @@ RougeLike.LogosScreen.prototype.create = function() {
     this.startTween();
 };
 
-RougeLike.LogosScreen.prototype.startTween = function() {
+FebGAM.LogosScreen.prototype.startTween = function() {
     this._tween = this.game.add.tween(this.logos[this._activeLogo]);
     this._tween.to({ alpha: 1 }, 1000);
     this._tween.onComplete.addOnce(this.fadeInComplete, this);
     this._tween.start();
 };
 
-RougeLike.LogosScreen.prototype.fadeInComplete = function() {
+FebGAM.LogosScreen.prototype.fadeInComplete = function() {
     this._tween = this.game.add.tween(this.logos[this._activeLogo]);
     this._tween.to({ alpha: 0 }, 1000, Phaser.Easing.Linear.None, true, 1000);
     this._tween.onComplete.addOnce(this.fadeOutComplete, this);
     this._tween.start();
 };
 
-RougeLike.LogosScreen.prototype.fadeOutComplete = function() {
+FebGAM.LogosScreen.prototype.fadeOutComplete = function() {
     this._activeLogo += 1;
     if (this._activeLogo >= this.logos.length) {
         this.game.state.start('MainMenu');

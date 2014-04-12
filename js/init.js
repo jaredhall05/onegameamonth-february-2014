@@ -1,1 +1,3 @@
-window.RougeLike = window.RougeLike || {};
+/* global FebGAM, Phaser */
+
+window.FebGAM = window.FebGAM || {};
