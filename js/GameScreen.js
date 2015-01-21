@@ -2,6 +2,7 @@
 
 FebGAM.GameScreen = function() {
     this.bg = null;
+    this.scoreText = null;
     
     this.surface_1 = null;
     this.surface_2 = null;
@@ -12,16 +13,19 @@ FebGAM.GameScreen = function() {
     
     this.aliens = [];
     
+    this.missedAliens = 0;
     this.score = 0;
 };
 
 FebGAM.GameScreen.prototype = Object.create(Phaser.State.prototype);
 FebGAM.GameScreen.prototype.constructor = FebGAM.GameScreen;
-
-FebGAM.GameScreen.prototype.preload = function() {
-};
     
 FebGAM.GameScreen.prototype.create = function() {
+    /*
+     * The order of the surfaces and the aliens
+     * is important for z-ordering so the aliens
+     * are behind some surfaces and on top of others.
+     */
     this.surface_6 = this.add.image(0, 0, 'surface', 0);
     
     this.aliens.push(new FebGAM.Alien(this.game, 68, 104));
@@ -40,10 +44,37 @@ FebGAM.GameScreen.prototype.create = function() {
     this.aliens.push(new FebGAM.Alien(this.game, 203, 424));
     
     this.surface_1 = this.add.image(0, 400, 'surface', 5);
+    
+    this.scoreText = this.add.text(5, 5, "Score: " + this.score, {
+        font: "24px Arial",
+        fill: "#fff"
+    });
+    
+    var _this = this;
+    
+    this.aliens.forEach(function(alien) {
+        alien.onDown.add(_this.onAlienDown, _this);
+        alien.onComplete.add(_this.onAlienComplete, _this);
+        alien.popup();
+    });
 };
     
 FebGAM.GameScreen.prototype.update = function() {
     this.aliens.forEach(function(alien) {
         alien.update();
     });
+};
+
+FebGAM.GameScreen.prototype.onAlienComplete = function(alien) {
+    this.missedAliens++;
+    if (this.missedAliens > 10) {
+        this.aliens.forEach(function(alien) {
+            alien.dispose();
+        });
+    }
+};
+
+FebGAM.GameScreen.prototype.onAlienDown = function() {
+    this.score += 1;
+    this.scoreText.setText("Score: " + this.score);
 };

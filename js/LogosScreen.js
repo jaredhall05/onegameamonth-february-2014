@@ -11,17 +11,17 @@ FebGAM.LogosScreen = function() {
 };
 
 FebGAM.LogosScreen.prototype = Object.create(Phaser.State.prototype);
-FebGAM.LogosScreen.prototype.constructor = Phaser.State;
+FebGAM.LogosScreen.prototype.constructor = FebGAM.LogosScreen;
 
 FebGAM.LogosScreen.prototype.preload = function() {
 };
 
 FebGAM.LogosScreen.prototype.create = function() {
-    this.phaserLogo = this.add.sprite(this.game.world.centerX, this.game.world.centerY,'phaser-logo');
+    this.phaserLogo = this.add.image(this.game.world.centerX, this.game.world.centerY,'phaser-logo');
     this.phaserLogo.anchor.setTo(0.5, 0.5);
     this.phaserLogo.alpha = 0;
     
-    this.jdhdevLogo = this.add.sprite(this.game.world.centerX, this.game.world.centerY,'jdhdev-logo');
+    this.jdhdevLogo = this.add.image(this.game.world.centerX, this.game.world.centerY,'jdhdev-logo');
     this.jdhdevLogo.anchor.setTo(0.5, 0.5);
     this.jdhdevLogo.alpha = 0;
     
@@ -29,6 +29,8 @@ FebGAM.LogosScreen.prototype.create = function() {
     this.logos.push(this.jdhdevLogo);
     
     this._activeLogo = 0;
+    
+    this.input.onDown.add(this.downHandler, this);
     
     this.startTween();
 };
@@ -54,4 +56,8 @@ FebGAM.LogosScreen.prototype.fadeOutComplete = function() {
     } else {
         this.startTween();
     }
+};
+
+FebGAM.LogosScreen.prototype.downHandler = function() {
+    this.game.state.start('MainMenu');
 };

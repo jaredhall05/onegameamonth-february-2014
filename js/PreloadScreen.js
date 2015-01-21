@@ -5,10 +5,10 @@ FebGAM.PreloadScreen = function() {
 };
 
 FebGAM.PreloadScreen.prototype = Object.create(Phaser.State.prototype);
-FebGAM.PreloadScreen.prototype.constructor = FebGAM.BootScreen;
+FebGAM.PreloadScreen.prototype.constructor = FebGAM.PreloadScreen;
 
 FebGAM.PreloadScreen.prototype.preload = function() {
-    this.progressBar = this.add.sprite(this.game.width * 0.5, this.game.height * 0.5, 'progBar');
+    this.progressBar = this.add.image(this.game.width * 0.5, this.game.height * 0.5, 'progBar');
     this.progressBar.anchor.setTo(0.5, 0.5);
     this.load.setPreloadSprite(this.progressBar);
     
